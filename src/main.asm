@@ -1,11 +1,21 @@
-[org 0x7c00]
+[bits 16]
 
-segment .bss
-segment .data
-segment .text 
-  global boot_operating_system
+section .bss
+section .data
+section .rodata
+section .text 
 
-call boot_operating_system
+  mov sp, 0x7c00
+
+  push bp
+  mov bp, sp
+  sub sp, 0x10
+   
+  call boot_operating_system
+  
+  mov sp, bp
+  pop bp
+
 
 ;;;;; includes ;;;;;;
 

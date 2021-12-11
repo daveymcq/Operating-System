@@ -1,3 +1,5 @@
+[bits 16]
+
 null_descriptor:
 
 	dd 0x0
